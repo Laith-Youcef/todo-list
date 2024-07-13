@@ -1,36 +1,43 @@
-<mat-card class="task-card" fxLayout="column" fxLayoutGap="20px">
-  <mat-card-header>
-    <mat-card-title fxFlex="100%" style="font-weight: bold; font-size: 1.2em;">Nouvelle tâche</mat-card-title>
-  </mat-card-header>
-  <mat-card-content fxFlex="100%">
-    <mat-form-field appearance="fill" style="width: 100%;">
-      <mat-label>Nouvelle tâche</mat-label>
-      <input matInput [(ngModel)]="newTask"/>
-    </mat-form-field>
-  </mat-card-content>
-  <mat-card-actions fxLayoutAlign="end">
-    <button mat-raised-button color="primary" (click)="addTask(newTask)" style="margin-top: 10px;">
-      Ajouter
-    </button>
-  </mat-card-actions>
-</mat-card>
-
-<mat-card class="task-list-card" fxLayout="column" fxLayoutGap="20px">
-  <mat-card-header>
-    <mat-card-title fxFlex="100%" style="font-weight: bold; font-size: 1.2em;">Liste des tâches</mat-card-title>
-  </mat-card-header>
-  <mat-card-content fxFlex="100%">
-    <mat-list>
-      <mat-list-item *ngFor="let task of todoList; index as i" fxLayout="row" fxLayoutAlign="space-between center" style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">
-        <div style="display: flex; align-items: center;">
-          <mat-checkbox [(ngModel)]="task.completed" (change)="toggleCompleted(i)">
-            {{ task.task }}
-          </mat-checkbox>
-        </div>
-        <button mat-icon-button color="warn" (click)="deleteTask(i)" style="margin-left: auto;">
-          <mat-icon style="cursor: pointer;">delete</mat-icon>
+<div fxLayout="row" fxLayoutAlign="center start" style="height: 100vh; width: 100%;">
+  <div style="width: 700px;">
+    <mat-card class="title-card" fxLayout="column" fxLayoutAlign="center center" style="margin-bottom: 20px; background-color: #3f51b5; color: white;">
+      <mat-card-title style="font-size: 2em; font-weight: bold;">TODO LIST</mat-card-title>
+    </mat-card>
+    <mat-card class="task-card" fxLayout="column" fxLayoutGap="20px">
+      <mat-card-header>
+        <mat-card-title style="font-weight: bold; font-size: 1.2em;">Nouvelle tâche</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>Nouvelle tâche</mat-label>
+          <input matInput [(ngModel)]="newTask"/>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions fxLayoutAlign="end">
+        <button mat-raised-button color="primary" (click)="addTask(newTask)">
+          Ajouter
         </button>
-      </mat-list-item>
-    </mat-list>
-  </mat-card-content>
-</mat-card>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="task-list-card" fxLayout="column" fxLayoutGap="20px" style="margin-top: 20px;">
+      <mat-card-header>
+        <mat-card-title style="font-weight: bold; font-size: 1.2em;">Liste des tâches</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let task of todoList; index as i" style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">
+            <div>
+              <mat-checkbox [(ngModel)]="task.completed" (change)="toggleCompleted(i)">
+                {{ task.task }}
+              </mat-checkbox>
+            </div>
+            <button mat-icon-button color="warn" (click)="deleteTask(i)" style="margin-left: auto;">
+              <mat-icon style="cursor: pointer;">delete</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

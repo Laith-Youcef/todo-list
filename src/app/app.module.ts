@@ -14,7 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { TodoListService } from './todo-list.service';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +25,7 @@ import { TodoListService } from './todo-list.service';
     AppRoutingModule,
 
     //add this imports
+    FlexLayoutModule,
     BrowserAnimationsModule,
     FormsModule,
     MatCardModule,
